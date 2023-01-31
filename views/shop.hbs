@@ -1,0 +1,25 @@
+<h1>My product</h1>
+{{#if isProds}}
+    <p>List of the products</p>
+    <div class="grid">
+        {{#each prods}}
+            <article class="card product-item">
+                <header class="card__header">
+                    <h1 class="product__title">{{title}}</h1>
+                </header>
+                <div class="card__image">
+                    <img src="{{imgPath}}" alt="{{imgPath}}" />
+                </div>
+                <div class="card__content">
+                    <h2 class="product__price">{{price}}</h2>
+                    <p class="product__description">{{description}}</p>
+                </div>
+                <div class="card__actions">
+                    <button>Add to cart</button>
+                </div>
+            </article>
+        {{/each}}
+    </div>
+{{else}}
+    <h2>No product found</h2>
+{{/if}}
