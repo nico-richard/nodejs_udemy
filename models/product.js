@@ -20,12 +20,17 @@ module.exports = class Product {
         this.description = description;
     }
     save() {
-        getProductsFromFile((products) => {
-            products.push(this);
-            fs.writeFile(p, JSON.stringify(products), (err) => {
-                console.log(err);
-            });
-        });
+        getProductsFromFile(
+            // lecture des datas actuelles si pas d'erreur
+            (products) => {
+                // ajout du nouveau product
+                products.push(this);
+                // écriture de la nouvelle liste maj
+                fs.writeFile(p, JSON.stringify(products), (err) => {
+                    console.log(err);
+                });
+            }
+        );
     }
     static fetchAll(callback) {
         getProductsFromFile(callback);
